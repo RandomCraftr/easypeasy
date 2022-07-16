@@ -8,7 +8,16 @@ jobs:
       - checkout
       - run: python3 -m pip install .
       - run: python3 -m pytest
+  buildandtest_win_latest:
+    machine:
+      image: windows-server-2022-gui:current
+    resource_class: windows.medium
+    steps:
+      - checkout
+      - run: python3 -m pip install .
+      - run: python3 -m pytest
 workflows:
   main:
     jobs:
       - buildandtest_linux_latest
+      - buildandtest_win_latest
