@@ -7,7 +7,9 @@ jobs:
     steps:
       - checkout
       - run: python3 -m pip install .
+        - name: Deploy package and dependencies
       - run: python3 -m pytest
+        - name: Test package
   buildandtest_win_latest:
     machine:
       image: windows-server-2022-gui:current
@@ -15,7 +17,9 @@ jobs:
     steps:
       - checkout
       - run: python -m pip install .
+        - name: Deploy package and dependencies
       - run: python -m pytest
+        - name: Test package
 workflows:
   main:
     jobs:
