@@ -6,20 +6,24 @@ jobs:
     resource_class: medium
     steps:
       - checkout
-      - run: python3 -m pip install .
+      - run:
         - name: Deploy package and dependencies
+        - command: python3 -m pip install .
       - run: python3 -m pytest
         - name: Test package
+        - command: python3 -m pytest
   buildandtest_win_latest:
     machine:
       image: windows-server-2022-gui:current
     resource_class: windows.medium
     steps:
       - checkout
-      - run: python -m pip install .
+      - run:
         - name: Deploy package and dependencies
-      - run: python -m pytest
+        - command: python -m pip install .
+      - run:
         - name: Test package
+        - command: python -m pytest
 workflows:
   main:
     jobs:
