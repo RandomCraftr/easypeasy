@@ -5,6 +5,7 @@ jobs:
   buildandtest:
     machine:
       image: ubuntu-2004:current
+    resource_class: medium
     executor: python/default
     steps:
       - checkout
