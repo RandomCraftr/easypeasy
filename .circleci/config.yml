@@ -9,7 +9,7 @@ jobs:
       - run:
           name: Deploy package and dependencies
           command: python3 -m pip install .
-      - run: python3 -m pytest
+      - run:
           name: Test package
           command: python3 -m pytest
   buildandtest_win_latest:
