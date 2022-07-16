@@ -25,7 +25,7 @@ def test_sequencer():
     # Define Sequencer object
     seq = sequencer.Sequencer(grid, objects_list_shuffled, estimator_list)
     # To execute the sequencer, we first need to define the output directory to which the different outputs will be saved
-    output_path = "sequencer_output_directory"
+    output_path = "."
     final_elongation, final_sequence = seq.execute(output_path)
     print(final_elongation)
     print(final_sequence)
