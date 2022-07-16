@@ -14,8 +14,8 @@ jobs:
     resource_class: windows.medium
     steps:
       - checkout
-      - run: python3 -m pip install .
-      - run: python3 -m pytest
+      - run: python -m pip install .
+      - run: python -m pytest
 workflows:
   main:
     jobs:
