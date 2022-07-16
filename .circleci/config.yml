@@ -2,11 +2,12 @@ version: 2.1
 orbs:
   python: circleci/python@2.0.3
 jobs:
-  build: # this can be any name you choose
-    executor: python/default # use the default executor defined within the orb
+  build:
+    executor: python/default
     steps:
-      - checkout # checkout source code
-      - command: python -m pip install .
-      - run:
-          name: Run tests
-          command: python -m pytest
+      - checkout
+      - run: python -m pip install .
+workflows:
+  main:
+    jobs:
+      - build
