@@ -21,6 +21,7 @@ dependencies = [
   'pytest',
   'numpy',
   'scipy',
+  'TheSequencer',
 ]
 
 [project.urls]
