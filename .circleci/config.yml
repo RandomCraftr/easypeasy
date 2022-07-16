@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   python: circleci/python@2.0.3
 jobs:
-  buildandtest_generic:
+  buildandtest:
     machine:
       image: ubuntu-2004:current
     executor: python/default
