@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "easypeasy"
+version = "0.0.0"
+authors = [
+  { name="RandomCraftr", email="contact.randomcraftr@gmail.com" },
+]
+description = "Old fashioned and fluid API for engineering & data science general purpose"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  'pytest',
+  'numpy',
+]
+
+[project.urls]
+"Homepage" = "https://github.com/RandomCraftr/easypeasy"
+"Bug Tracker" = "https://github.com/RandomCraftr/easypeasy/issues"
