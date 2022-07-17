@@ -21,7 +21,13 @@ dependencies = [
   'pytest',
   'numpy',
   'scipy',
-  'TheSequencer',
+  # Following required by TheSequencer sources being included in this package
+  'numpy>=1.13',
+  'scikit-learn>=0.20',
+  'scipy>=1.0',
+  'networkx>=2.4',
+  'joblib>=0.13.2',
+  # End of dependencies required by including TheSequencer sources included in this package
 ]
 
 [project.urls]

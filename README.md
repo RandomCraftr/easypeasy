@@ -19,3 +19,10 @@ Easypeasy is devoted to deliver you state of the art methods and latest research
 
 # This Python project implements circleci CI/CD !
 Latest status:  [![RandomCraftr](https://circleci.com/gh/RandomCraftr/easypeasy.svg?style=svg)](https://app.circleci.com/pipelines/github/RandomCraftr/easypeasy)
+
+# Maintenance tasks
+Here is a list of maintenance tasks to execute on this package. Most of these tasks depends on some external event, such as a third party accepting some pull request.
+
+| Task Id | Task Description | Status |
+| ----------- | ----------- | ----------- |
+|1| When pull request https://github.com/dalya/Sequencer/pull/5 will be completed, remove `sequencer` directory from `third _parties`, and define dependency to TheSequencer in the new version. Remove all dependencies specific to sequencer in this project dependencies.| Pending |

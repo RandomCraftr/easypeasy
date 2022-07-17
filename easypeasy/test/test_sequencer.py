@@ -1,5 +1,6 @@
 import numpy
-import sequencer
+import easypeasy.thirdparties.sequencer as sequencer
+
 
 def test_sequencer():
     # Create test data to sequence
