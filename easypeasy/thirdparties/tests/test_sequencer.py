@@ -1,8 +1,12 @@
 import numpy
+import tempfile
 import easypeasy.thirdparties.sequencer as sequencer
 
 
 def test_sequencer():
+    """
+    Test sequencer overall behaviour. Shuffle a sequence generated and check Sequencer finds out initial ordering.
+    """
     # Create test data to sequence
     grid = numpy.arange(20)
     objects_list_simulated = []
@@ -17,16 +21,14 @@ def test_sequencer():
     objects_list_shuffled = objects_list_simulated[objects_true_indices, :]
     # Define the list of distance metrics to consider.
     estimator_list = ['EMD', 'energy', 'L2']
-
-    # define the sequencer object with default parameters
-    #scale_list = numpy.array([[1], [1], [1]], dtype=numpy.int64)
-    #print(scale_list is not None)
-    #for scale_value in numpy.array(scale_list).flatten():
-    #    print(type(scale_value))
     # Define Sequencer object
     seq = sequencer.Sequencer(grid, objects_list_shuffled, estimator_list)
-    # To execute the sequencer, we first need to define the output directory to which the different outputs will be saved
-    output_path = "."
+    # Define output dir as tempdir
+    output_path = tempfile.gettempdir()
     final_elongation, final_sequence = seq.execute(output_path)
-    print(final_elongation)
-    print(final_sequence)
+    # Assert result against known reference: sequence can be original or reverse: both valid
+    check_sequence = objects_true_indices[final_sequence]
+    if check_sequence[0]<check_sequence[-1]:
+        numpy.testing.assert_array_equal(numpy.arange(20), objects_true_indices[final_sequence])
+    else:
+        numpy.testing.assert_array_equal(numpy.arange(20), objects_true_indices[final_sequence[::-1]])
