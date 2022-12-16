@@ -1,6 +1,7 @@
 import numpy
 import tempfile
 import easypeasy.thirdparties.sequencer as sequencer
+from sklearn.decomposition import PCA
 
 def sequence(data):
     """
@@ -16,3 +17,9 @@ def sequence(data):
     output_path = tempfile.gettempdir()
     final_elongation, final_sequence = seq.execute(output_path)
     return final_sequence
+
+#Row wise
+def compute_pca_basis(data):
+    pca = PCA()
+    return pca.fit(data).components_
+
