@@ -1,4 +1,6 @@
+import numpy
 from sklearn.decomposition import PCA
+import plotly.express as px
 
 # Do we need a class for only class methods ? file will be enough. One line command <=> no class definition ?
 class PrincipalComponentAnalysis:
@@ -9,7 +11,6 @@ class PrincipalComponentAnalysis:
 
     @classmethod
     def report(cls, data):
-        #Compute PCA
-        #Compute checks
-        #Fill out template and export report
-        pass
+        data = numpy.array(data)
+        fig = px.scatter(x=data[:,0], y=data[:,1])
+        fig.show()
