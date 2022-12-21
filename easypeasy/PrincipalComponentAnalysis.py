@@ -16,13 +16,13 @@ class PrincipalComponentAnalysis:
         # Generate figures
         data = numpy.array(data)
         fig = px.scatter(x=data[:, 0], y=data[:, 1])
-        fig_html = fig.to_html(full_html = False, include_plotlyjs = True)
+        fig_html = fig.to_html(full_html = False, include_plotlyjs = False)
         # Fill out template
         env = Environment(
             loader=PackageLoader("easypeasy"),
         )
         template = env.get_template("PrincipalComponentAnalysis.html")
         report_string = template.render(figure = fig_html)
-        report = open("report.html","w")
+        report = open("out/report.html","w")
         report.write(report_string)
         report.close()
