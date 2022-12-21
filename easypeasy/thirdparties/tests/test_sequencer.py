@@ -1,4 +1,5 @@
 import numpy
+import pandas
 import tempfile
 import easypeasy.thirdparties.sequencer as sequencer
 
