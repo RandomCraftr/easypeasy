@@ -21,6 +21,7 @@ dependencies = [
   'pytest',
   'numpy',
   'scipy',
+  'plotly',
   # Following required by TheSequencer sources being included in this package
   'numpy>=1.13',
   'scikit-learn>=0.20',
