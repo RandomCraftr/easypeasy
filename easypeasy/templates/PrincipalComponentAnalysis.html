@@ -9,21 +9,20 @@
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-
     <main>
       <div class="container py-4">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-          <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-            <img src="media/kool - sleeping branch - rectangle.jpg" height="60" class="me-2">
-            <img src="media/logo_RGB_47_153_89.png" height="30" class="me-2">
-          </a>
+        <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+          <img src="media/kool - sleeping branch - rectangle.jpg" height="60" class="me-2">
+          <img src="media/logo_RGB_47_153_89.png" height="30" class="me-2">
+        </a>
 
-          <ul class="nav nav-pills">
-            <li class="nav-item"><a href="#Summary" class="nav-link btn btn-outline-primary">Summary</a></li>
-            <li class="nav-item"><a href="#Data" class="nav-link btn btn-outline-primary">Data</a></li>
-            <li class="nav-item"><a href="#" class="nav-link btn btn-outline-primary">Results</a></li>
-            <li class="nav-item"><a href="#" class="nav-link btn btn-outline-primary">Checks</a></li>
-          </ul>
+        <ul class="nav nav-pills">
+          <li class="nav-item"><a href="#Summary" class="nav-link btn btn-outline-primary">Summary</a></li>
+          <li class="nav-item"><a href="#Data" class="nav-link btn btn-outline-primary">Data</a></li>
+          <li class="nav-item"><a href="#" class="nav-link btn btn-outline-primary">Results</a></li>
+          <li class="nav-item"><a href="#" class="nav-link btn btn-outline-primary">Checks</a></li>
+        </ul>
         </header>
 
         <!-- Summary section-->
@@ -31,7 +30,7 @@
         <div class="p-5 mb-4 bg-light rounded-3">
           <div class="container-fluid py-5">
             <h1 class="display-5 fw-bold">Summary</h1>
-            <p class="col-md-8 fs-4">This report has been generated as a result of principal component analysis on data described here below. This analysis is reported as:</p>
+            <p class="col-md-8 fs-4">This report has been generated as a result of {{analysis_name}} on data described here below. This analysis is reported as:</p>
 
             <div class="alert alert-success" role="alert">
               <h4 class="alert-heading">Successfull</h4>
@@ -49,16 +48,25 @@
             </div>
           </div>
         </div>
+        <!-- End summary section-->
 
         <!-- Data section-->
         <a id="Data"></a>
         <div class="p-5 mb-4 bg-light rounded-3">
           <div class="container-fluid py-5">
             <h1 class="display-5 fw-bold">Data</h1>
-            {{figure}}
+            <div class="container-fluid py-2">
+              <div class="d-flex flex-row flex-nowrap overflow-auto">
+                {% for one_fig in project_2d_figs -%}
+                <div class="card card-body" style="min-width: 850px;">
+                {{ one_fig }}
+                </div>
+                {% endfor %}
+              </div>
+            </div>
           </div>
         </div>
-        <!-- -->
+        <!-- End data section-->
 
         <!-- Result section-->
         <a id="Result"></a>
@@ -68,6 +76,7 @@
         <a id="Checks"></a>
         <!-- -->
 
+        <!-- Footer section-->
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
           <div class="col-md-4 d-flex align-items-center">
             <small class="mb-3 mb-md-0 text-muted">Robust numerics & analytics, served by&nbsp;</small>
@@ -78,10 +87,7 @@
             <li class="ms-3"><a class="text-muted" href="https://github.com/RandomCraftr/easypeasy"><svg xmlns="http://www.w3.org/2000/svg" height="45" fill="currentColor" class="bi bi-github" viewBox="0 0 28 28"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a></li>
           </ul>
         </footer>
-
       </div>
-
     </main>
-
   </body>
 </html>

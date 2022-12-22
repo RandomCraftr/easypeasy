@@ -1,7 +1,6 @@
 import numpy
 import easypeasy
 
-
 def test_compute_basis():
     print(dir(easypeasy.PrincipalComponentAnalysis))
     # Generate canonical vectors to test PCA
