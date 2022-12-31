@@ -1,9 +1,12 @@
+import datetime
+import hashlib
 import os
 
 import numpy
 from sklearn.decomposition import PCA
 import plotly.express as px
 from jinja2 import Environment, PackageLoader
+from codenamize import codenamize
 
 from PIL import Image
 
@@ -20,6 +23,12 @@ class PrincipalComponentAnalysis:
     @classmethod
     def report(cls, data):
         data = numpy.array(data)
+        # Report metadata
+        username = os.getlogin()
+        report_timestamp = datetime.datetime.now()
+        human_readable_hash = codenamize(data.tostring(),join = "",capitalize = True)
+        md5_hash = hashlib.md5(data.tostring()).hexdigest()
+        data_hash = human_readable_hash + " (MD5: " + md5_hash + ")"
         # Descriptive statistics
         data_cardinality = data.shape[0]
         data_dimension = data.shape[1]
@@ -47,6 +56,9 @@ class PrincipalComponentAnalysis:
         )
         template = env.get_template("PrincipalComponentAnalysis.html")
         report_string = template.render(analysis_name=cls.analysis_name,
+                                        username = username,
+                                        report_timestamp = report_timestamp,
+                                        data_hash = data_hash,
                                         project_2d_figs=project_2d_figs,
                                         data_cardinality = data_cardinality,
                                         data_dimension = data_dimension)

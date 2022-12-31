@@ -25,7 +25,8 @@ dependencies = [
   'scikit-learn==1.2.0',
   'pandas==1.5.2',        # Required by Plotly Express, not included as dependencies in plotly
   'jinja2',               # Templating engine for HTML report generation
-  'Pillow',                  # Image conversion to HTML source
+  'Pillow',               # Image conversion to HTML source
+  'codenamize',           # Human readable hash
   # Following required by TheSequencer sources being included in this package
   'numpy>=1.13',
   'scikit-learn>=0.20',
