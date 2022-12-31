@@ -19,8 +19,11 @@ class PrincipalComponentAnalysis:
 
     @classmethod
     def report(cls, data):
-        # Generate all 2 dim projection from raw data
         data = numpy.array(data)
+        # Descriptive statistics
+        data_cardinality = data.shape[0]
+        data_dimension = data.shape[1]
+        # Generate all 2 dim projection from raw data
         project_2d_figs = []
         for xdim in range(data.shape[1]):
             for ydim in range(xdim+1, data.shape[1]):
@@ -43,7 +46,10 @@ class PrincipalComponentAnalysis:
             loader=PackageLoader("easypeasy"),
         )
         template = env.get_template("PrincipalComponentAnalysis.html")
-        report_string = template.render(analysis_name=cls.analysis_name, project_2d_figs=project_2d_figs)
+        report_string = template.render(analysis_name=cls.analysis_name,
+                                        project_2d_figs=project_2d_figs,
+                                        data_cardinality = data_cardinality,
+                                        data_dimension = data_dimension)
         os.makedirs("out", exist_ok=True)
         report = open("out/report.html", "w")
         report.write(report_string)
