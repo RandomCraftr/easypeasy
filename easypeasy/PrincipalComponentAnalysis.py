@@ -26,12 +26,14 @@ class PrincipalComponentAnalysis:
         # Report metadata
         username = os.getlogin()
         report_timestamp = datetime.datetime.now()
-        human_readable_hash = codenamize(data.tostring(),join = "",capitalize = True)
+        human_readable_hash = codenamize(data.tostring(), join="", capitalize=True)
         md5_hash = hashlib.md5(data.tostring()).hexdigest()
         data_hash = human_readable_hash + " (MD5: " + md5_hash + ")"
         # Descriptive statistics
         data_cardinality = data.shape[0]
         data_dimension = data.shape[1]
+        # Data preview
+        data_preview = str(data)
         # Generate all 2 dim projection from raw data
         project_2d_figs = []
         for xdim in range(data.shape[1]):
@@ -44,7 +46,8 @@ class PrincipalComponentAnalysis:
                 # Customize various option before export: toolbar, scroll zoom
                 config = dict({'scrollZoom': True,
                                'displaylogo': False,
-                               # List of buttons at: https://plotly.com/javascript/configuration-options/#remove-modebar-buttons
+                               # List of buttons at:
+                               # https://plotly.com/javascript/configuration-options/#remove-modebar-buttons
                                "modeBarButtonsToRemove": ("select2d", "lasso2d", "resetScale2d")})
                 # Export figure to embed in HTML template
                 fig_html = fig.to_html(full_html=False, include_plotlyjs=False, config=config)
@@ -56,12 +59,13 @@ class PrincipalComponentAnalysis:
         )
         template = env.get_template("PrincipalComponentAnalysis.html")
         report_string = template.render(analysis_name=cls.analysis_name,
-                                        username = username,
-                                        report_timestamp = report_timestamp,
-                                        data_hash = data_hash,
+                                        username=username,
+                                        report_timestamp=report_timestamp,
+                                        data_hash=data_hash,
                                         project_2d_figs=project_2d_figs,
-                                        data_cardinality = data_cardinality,
-                                        data_dimension = data_dimension)
+                                        data_cardinality=data_cardinality,
+                                        data_dimension=data_dimension,
+                                        data_preview=data_preview)
         os.makedirs("out", exist_ok=True)
         report = open("out/report.html", "w")
         report.write(report_string)

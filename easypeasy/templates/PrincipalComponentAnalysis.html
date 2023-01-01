@@ -34,7 +34,7 @@
 
             <div class="alert alert-success" role="alert">
               <h4 class="alert-heading">Successfull</h4>
-              <p>Data and associated processing has been checked along state of the art metrics successfully. No noticeable issue in data and associated processing is reported. Subsequent analysis and results can be trusted and can support decision taking processes.</p>
+              <p>Data and associated processing has been checked along "state of the art" metrics successfully. No noticeable issue in data and associated processing is reported. Subsequent analysis and results can be trusted and can support decision taking processes.</p>
             </div>
 
             <div class="alert alert-warning" role="alert">
@@ -44,7 +44,7 @@
 
             <div class="alert alert-danger" role="alert">
               <h4 class="alert-heading">Junk</h4>
-              <p>Data and associated processing suffer from major flaws. Processing completion revealed that data is unadapted to requested analysis. Hence processing failed to complete or completed with unstable numerical results.</p>
+              <p>Data and associated processing suffer from major flaws. Processing completion revealed that data is unadapted to requested analysis. Hence, processing failed to complete or completed with unstable numerical results.</p>
             </div>
 
             <!-- Basic description of report for documentation tracking: generation date, data hash, username -->
@@ -74,6 +74,7 @@
           <div class="container-fluid py-5">
             <h1 class="display-5 fw-bold">Data</h1>
             <!-- Basic descriptive statistics over data -->
+            <h2 data-bs-toggle="tooltip" data-bs-placement="left" title="This section provides major information on data processed.">Descriptive statistics</h2>
             <table class="table w-auto">
               <tbody>
                 <tr>
@@ -86,7 +87,11 @@
                 </tr>
               </tbody>
             </table>
+            <!-- Data preview -->
+            <h2 data-bs-toggle="tooltip" data-bs-placement="left" title="This section provides a view of part of processed data.">Data preview</h2>
+            <pre>{{ data_preview }}</pre>
             <!-- Pair plots -->
+            <h2 data-bs-toggle="tooltip" data-bs-placement="left" title="This section provides all 2D projections of data processed.">Data projections</h2>
             <div class="container-fluid py-2">
               <div class="d-flex flex-row flex-nowrap overflow-auto">
                 {% for one_fig in project_2d_figs -%}
@@ -121,5 +126,12 @@
         </footer>
       </div>
     </main>
+    <!-- Enable tooltip everywhere -->
+    <script defer>
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+      })
+    </script>
   </body>
 </html>
