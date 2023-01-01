@@ -1,4 +1,5 @@
 import datetime
+import getpass
 import hashlib
 import os
 
@@ -24,7 +25,7 @@ class PrincipalComponentAnalysis:
     def report(cls, data):
         data = numpy.array(data)
         # Report metadata
-        username = os.getlogin()
+        username = getpass.getuser()
         report_timestamp = datetime.datetime.now()
         human_readable_hash = codenamize(data.tostring(), join="", capitalize=True)
         md5_hash = hashlib.md5(data.tostring()).hexdigest()
