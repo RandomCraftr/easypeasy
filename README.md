@@ -1,8 +1,27 @@
+
 # Let’s discover easypeasy !
+easypeasy is a Python package that mixes **robust Python libraries in data science** and **academic/industrial lessons learnt** - publicly disseminated - in application of these methods. The result is one line command toward each of your favorite scipy/numpy/scikit-learns/pandas routines, and a **full featured HTML** reports bringing all needed **interactivity** along your analysis tasks and data.
+## Easypeasy key features for professional data scientists
+- Easypeasy produces at no cost **professional looking & standalone reports**. You can share results, and **deliver** them without taking care of your **customer** environment. Sharing one standalone HTML file in a mail is all it requires.
+- Easypeasy implements **by default all robustness and quality checks** known to date along each of the analysis you want to implement. Matrix conditioning, convergence, stability of results, ... : all these naughty details you learnt at school are not forgotten, and **augmented along state of the art evolution**
+- Easypeasy **can not output a numerical results which is dubious.** If dubious, it is highlighted in big bold red letters in the report, or escalated via Python Exception mechanism.
+- Easypeasy is free, and does not reinvent the wheel
+## Easypeasy key features for professional engineers and data scientist enthusiasts
+You did that **MOOC** everybody advised you to do, and you feel empowered by the all the new methods and techniques you learnt in data science domain. **Hold on, hold on** and read the next. Most of the techniques you learnt assumes some characteristics of your data to be valid. **For example do you**:
+- check gaussian distribution of your residuals after curve fitting ?
+- check matrix conditioning before principal component analysis execution ?
+- check for clusters in your data before learning a surrogate model ? 
+- check for matrix conditioning before solving a least square problem ? 
 
-Hello, if you are reading this, you only have one step left before discovering your new favorite Python package: the long-awaited easypeasy. Easypeasy is the result of **10+ years** of thinking and observation of the Python language for scientific & analytics purposes. **As early adopters and ambassadors of the Python language in the European aerospace industry**, we watched how Python packages started to look like good old Fortran, and soon became as heavy as Java.
+If you anwered yes to all question: [look at previous section](#Easypeasy-key-features-for-professional-data-scientists). 
+If you answered no to one of these question, Easypeasy will embed all required checks for all these methods you want to use, but **you are not expert about**. This is the path to generate the valid results you want to obtain. And because all of this is explained in HTML reports, **you'll improve your skills too** !
+## I don't need easypeasy, I already have that fancy Jupyter notebook that embed all the check I need.
+**This is exactly what you should do**. Easypeasy is the solution for those not having capitalized already this knowledge into reusable material (like Jupyter notebook), for those unsatisfied with this capitalization (not maintained, not complete, modifiable by others), or those not able to parse the litterature regularly to improve this material. If you have existing notebooks and processes to maitain, improve and disseminate this, easypeasy is not for you. **But please contact us at ...** so that we share lessons learnt and possibly incoporate your recipes into easypeasy !
 
-If you have never used the `print` command without the parentheses, you will find it difficult to understand the rest, but let's try. When we justified to our end users the choice to migrate from Java to Python, we highlighted the fact that each Java library included its own specific data format. **We don't want to waste time and effort converting from one data format to another** from one library to another.
+# Why easypeasy
+Easypeasy is the result of **10+ years** of thinking and observation of the Python language for scientific & analytics purposes. **As early adopters and ambassadors of the Python language in the European aerospace industry**, we watched how Python packages started to look like good old Fortran, and soon became as heavy as Java.
+
+When we justified to our end users the choice to migrate from Java to Python, we highlighted the fact that each Java library included its own specific data format. **We don't want to waste time and effort converting from one data format to another** from one library to another.
 
 **That was too complex: One package for Excel parsing ? One data format. One package for matrix inversion ? One data format.  One package for visualization ? One data format.** And at the end, that same 10x10 double array being converted against its will ... But it less and less true that Python still offers that simplicity. So ... you will be able now to execute complex scientific routines **without having to learn specific API you don't care about**. You know how to put your data in some array ? Great, that's all it takes !
 
