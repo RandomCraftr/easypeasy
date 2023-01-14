@@ -1,7 +1,7 @@
 
 # Let’s discover easypeasy !
 easypeasy is a Python package that mixes **robust Python libraries in data science** and **academic/industrial lessons learnt** - publicly disseminated - in application of these methods. The result is one line command toward each of your favorite scipy/numpy/scikit-learns/pandas routines, and a **full featured HTML** reports bringing all needed **interactivity** along your analysis tasks and data.
-![Infography 1](easypeasy/docs/Infography 1.png)
+![Infography 1](easypeasy/docs/Infography1.png)
 *Figure 1 - easypeasy combines both state of the art libraries and professionals best practices*
 ## Easypeasy key features for professional data scientists
 - Easypeasy produces at no cost **professional looking & standalone reports**. You can share results, and **deliver** them without taking care of your **customer** environment. Sharing one standalone HTML file in a mail is all it requires.
