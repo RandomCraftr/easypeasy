@@ -13,6 +13,7 @@ from PIL import Image
 
 
 # Do we need a class for only class methods ? file will be enough. One line command <=> no class definition ?
+# TODO refactor analysis to enable building block reporting
 class PrincipalComponentAnalysis:
     analysis_name = "Principal Component Analysis"
 
