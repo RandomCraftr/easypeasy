@@ -2,6 +2,7 @@ import datetime
 import getpass
 import hashlib
 import os
+import sys
 
 import numpy
 from sklearn.decomposition import PCA
@@ -77,8 +78,10 @@ class PrincipalComponentAnalysis:
     def customize_plot(cls, fig):
         # Add plotly template
         fig.update_layout(template="none")
-        # Add easypeasy logo
-        easypeasy_logo = Image.open('./easypeasy/templates/media/logo_RGB_47_153_89.png')
+        # Add easypeasy logo (resolve logo abspath)
+        package_path = os.path.dirname(sys.modules[__name__].__file__)
+        image_path = os.path.join(package_path, 'templates', 'media', 'logo_RGB_47_153_89.png')
+        easypeasy_logo = Image.open(image_path)
         fig.update_layout(images=[dict(
                               source=easypeasy_logo,
                               xref="paper", yref="paper",
