@@ -801,7 +801,7 @@ class Sequencer(object):
         assert (distance_matrix.diagonal() == 0).all(), "distance matrix must contain zeros in its diagonal"
 
         min_span_dist_mat = minimum_spanning_tree(csr_matrix(distance_matrix)).toarray()
-        G = nx.from_scipy_sparse_matrix(minimum_spanning_tree(csr_matrix(distance_matrix)))
+        G = nx.from_scipy_sparse_array(minimum_spanning_tree(csr_matrix(distance_matrix)))
         if return_elongation:
             start_index = self._return_start_index_from_MST(G)
             distance_dict = nx.shortest_path_length(G, start_index)
@@ -840,7 +840,7 @@ class Sequencer(object):
         assert (distance_matrix.diagonal() == 0).all(), "distance matrix must contain zeros in its diagonal"
 
         min_span_dist_mat = minimum_spanning_tree(csr_matrix(distance_matrix)).toarray()
-        G = nx.from_scipy_sparse_matrix(minimum_spanning_tree(csr_matrix(distance_matrix)))
+        G = nx.from_scipy_sparse_array(minimum_spanning_tree(csr_matrix(distance_matrix)))
         if start_index == None:
             start_index = self._return_start_index_from_MST(G)
         # DFS walk
