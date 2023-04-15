@@ -12,6 +12,8 @@ def test_compute_basis():
 
 
 def test_report():
+    # Prepare data
     data = numpy.random.randn(1000, 2)
     data[:, 1] = data[:, 0]*2+2+0.4*data[:, 1]
+    # Do the magic !
     easypeasy.PrincipalComponentAnalysis.report(data)
